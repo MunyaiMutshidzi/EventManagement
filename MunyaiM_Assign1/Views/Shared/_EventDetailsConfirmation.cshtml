@@ -1,0 +1,37 @@
+﻿
+@model Event
+
+<h2>@Model.EventTitle</h2> @* Event title *@
+@* Using HTLM TAGHELPERS *@
+<p>
+    <strong>@Html.DisplayNameFor(Model => Model.EventDescription):</strong> 
+    @Model.EventDescription
+ </p> @* Event Description *@
+<p>
+    <strong>@Html.DisplayNameFor(Model => Model.EventStartDate):
+    </strong> @Model.EventStartDate.ToShortDateString()
+ </p> @* Event Start Date *@
+
+@if (Model.EventEndDate.HasValue)
+{
+    <p>
+        <strong>@Html.DisplayNameFor(Model => Model.EventEndDate):</strong>
+        @Model.EventEndDate.Value.ToShortDateString()
+    </p> @* Event End Date *@
+}
+<p>
+    <strong>@Html.DisplayNameFor(Model => Model.EventLocation):</strong>
+    @Model.EventLocation
+</p> @* Event Location *@
+<p>
+    <strong>Available spots:</strong> 
+
+    @if(Model.EventRegistrations < Model.EventMaxAttendees)
+    {
+        <span>@(Model.EventMaxAttendees - Model.EventRegistrations)</span>
+    }
+    else
+    {
+        <span class="text-danger">Full</span>
+    }
+    <p> 

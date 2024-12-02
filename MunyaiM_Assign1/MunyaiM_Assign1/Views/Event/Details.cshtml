@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Event Details";
+}
+
+<partial name="_EventDetailsConfirmation" model="@Model"></partial>
+
+    @if(Model.EventMaxAttendees > 0)
+    {
+     
+      <p>
+        <a class="btn btn-primary" asp-controller="Attendee" asp-action="Register">Register</a>
+   
+        <a class="btn btn-outline-primary"
+           asp-controller="Event" asp-action="index">Return to Home Page</a>
+    </p>
+
+    }
+    else
+    {
+    <span class="text-danger">Full</span>
+    <p>
+        <a class="btn btn-outline-primary"
+           asp-controller="Event" asp-action="index">Return to Home Page</a>
+    </p>
+    }
+    
+
+

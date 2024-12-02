@@ -1,0 +1,35 @@
+﻿@model Attendee
+@{
+    ViewBag.Title = "Register";
+}
+<h2>Event Registration</h2>
+<hr />
+
+<form asp-action="Register" method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+   @*  <input type="hidden" asp-for="EventId"/> *@
+    <div class="mb-3">
+        <label class="form-label">@Html.DisplayNameFor(Model => Model.AttendeeName)</label>
+        <input asp-for="AttendeeName" class="form-control" />
+        <span asp-validation-for="AttendeeName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">@Html.DisplayNameFor(Model => Model.Email)</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <input type="hidden" asp-for="AttendeeId" />
+        <input type="hidden" asp-for="AttendeeName"/>
+        <input type="hidden" asp-for="Email"/>
+        <input type="hidden" asp-for="EventId" />
+        <input type="submit" value="Complete Registration" class="btn btn-primary" />
+        <a class="btn btn-outline-primary"
+         asp-controller="Event" asp-action="index">Back to Event Details</a>
+    </div>
+</form>
+

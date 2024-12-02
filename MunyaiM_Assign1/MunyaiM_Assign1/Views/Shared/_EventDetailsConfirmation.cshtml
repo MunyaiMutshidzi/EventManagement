@@ -1,0 +1,20 @@
+﻿
+@model Event
+
+<h2>@Model.EventTitle</h2> @* Event title *@
+
+<p><strong>@Html.DisplayNameFor(Model => Model.EventDescription)</strong>  @Model.EventDescription</p> @* Event Description *@
+<p><strong>@Html.DisplayNameFor(Model => Model.EventStartDate)</strong> @Model.EventStartDate.ToShortDateString()</p> @* Event Start Date *@
+<p><strong>@Html.DisplayNameFor(Model => Model.EventEndDate)</strong> @Model.EventEndDate.ToShortDateString()</p> @* Event End Date *@
+<p><strong>@Html.DisplayNameFor(Model => Model.EventLocation)</strong> @Model.EventLocation</p> @* Event Location *@
+
+<span>
+        @{
+            int value = @Model.EventMaxAttendees - Model.EventRegistrations;
+            @Model.EventMaxAttendees = value;
+        }
+       
+</span>  @* Calculated value *@
+<p>
+    <strong>@Html.DisplayNameFor(Model => Model.EventMaxAttendees)</strong> @Model.EventMaxAttendees
+<p> 

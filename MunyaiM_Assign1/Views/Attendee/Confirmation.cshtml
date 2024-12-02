@@ -1,0 +1,25 @@
+﻿@model Event
+@{
+    // ViewBag.Title = "Confirmation";
+    ViewData["Title"] = "Confirmation";
+}
+<h1>Thank You for Registering!</h1>
+<hr />
+
+ <partial name="_EventDetailsConfirmation" model="@Model"></partial>
+ 
+<p>
+    <strong>List of attendees:</strong>
+    <br />
+    <div>
+        @foreach(var attendees in Model.Attendees)
+        {
+           <p>@attendees.AttendeeName (@attendees.Email)</p>
+        }
+    </div> @* Attendee details *@
+</p>
+
+<p>
+    <a class="btn btn-primary" asp-controller="Event" asp-action="index">Return to Home Page</a>
+</p>
+

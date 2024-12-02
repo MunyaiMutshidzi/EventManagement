@@ -1,0 +1,27 @@
+﻿@model Event
+@{
+   ViewData["Title"]= "Event Details";
+}
+
+<partial name="_EventDetailsConfirmation" model="@Model"></partial>
+
+@if (Model.EventMaxAttendees > Model.EventRegistrations)
+{
+
+    <p>
+        <a asp-controller="Attendee" asp-action="Register" asp-route-EventId="@Model.EventId"
+        class="btn btn-primary">Register</a>
+
+    </p>
+}
+  <p>
+
+    <a class="btn btn-outline-primary"
+       asp-action="index">Return to Home Page</a>
+   @*  <a class="btn btn-outline-primary"
+        asp-controller="Event" asp-action="index">Return to Home Page</a> *@
+  </p>
+    
+    
+
+
